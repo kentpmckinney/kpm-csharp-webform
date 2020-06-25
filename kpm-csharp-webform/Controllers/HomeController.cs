@@ -49,7 +49,7 @@ namespace kpm_csharp_webform.Controllers
       //   return "test: " + pwd;//(IActionResult)
       //                         // return View();
       string key = System.Environment.GetEnvironmentVariable("SENDGRID_API_KEY");
-      return key;
+      return "this is a test";
     }
   }
 }
