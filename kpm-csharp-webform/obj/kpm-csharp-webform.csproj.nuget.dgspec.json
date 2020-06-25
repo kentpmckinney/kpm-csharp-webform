@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/kpm-csharp-webform/kpm-csharp-webform.csproj": {}
+    "/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/kpm-csharp-webform.csproj": {}
   },
   "projects": {
-    "/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/kpm-csharp-webform/kpm-csharp-webform.csproj": {
+    "/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/kpm-csharp-webform.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/kpm-csharp-webform/kpm-csharp-webform.csproj",
+        "projectUniqueName": "/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/kpm-csharp-webform.csproj",
         "projectName": "kpm-csharp-webform",
-        "projectPath": "/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/kpm-csharp-webform/kpm-csharp-webform.csproj",
+        "projectPath": "/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/kpm-csharp-webform.csproj",
         "packagesPath": "/Users/kent/.nuget/packages/",
-        "outputPath": "/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/kpm-csharp-webform/obj/",
+        "outputPath": "/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/kent/.nuget/NuGet/NuGet.Config"
@@ -35,6 +35,16 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "DotNetEnv": {
+              "target": "Package",
+              "version": "[1.4.0, )"
+            },
+            "NETCore.MailKit": {
+              "target": "Package",
+              "version": "[2.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

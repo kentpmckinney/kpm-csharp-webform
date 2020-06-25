@@ -1,5 +1,5 @@
 {
-  "FilePath": "/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/kpm-csharp-webform/kpm-csharp-webform.csproj",
+  "FilePath": "/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/kpm-csharp-webform.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "3.0",
@@ -20521,38 +20521,38 @@
   "RootNamespace": "kpm_csharp_webform",
   "Documents": [
     {
-      "FilePath": "/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/kpm-csharp-webform/Views/Home/Privacy.cshtml",
-      "TargetPath": "Views\\Home\\Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/kpm-csharp-webform/Views/_ViewStart.cshtml",
-      "TargetPath": "Views\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/kpm-csharp-webform/Views/Home/Index.cshtml",
-      "TargetPath": "Views\\Home\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/kpm-csharp-webform/Views/Shared/_Layout.cshtml",
-      "TargetPath": "Views\\Shared\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/kpm-csharp-webform/Views/Shared/Error.cshtml",
+      "FilePath": "/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/Views/Shared/Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/kpm-csharp-webform/Views/_ViewImports.cshtml",
+      "FilePath": "/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/Views/Home/Privacy.cshtml",
+      "TargetPath": "Views\\Home\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/Views/_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/kpm-csharp-webform/Views/Shared/_ValidationScriptsPartial.cshtml",
+      "FilePath": "/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/Views/_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/Views/Shared/_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/Views/Home/Index.cshtml",
+      "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/Views/Shared/_Layout.cshtml",
+      "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
     }
   ],
