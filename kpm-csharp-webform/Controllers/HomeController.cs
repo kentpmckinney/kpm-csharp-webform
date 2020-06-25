@@ -7,7 +7,6 @@ namespace kpm_csharp_webform.Controllers
   {
     public string Index()
     {
-      DotNetEnv.Env.Load();
       string test = "<div>" + (string)System.Environment.GetEnvironmentVariable("TEST") + "</div>";
       return test; //(IActionResult)
                    // return View();

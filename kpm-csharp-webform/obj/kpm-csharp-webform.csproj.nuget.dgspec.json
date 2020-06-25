@@ -36,10 +36,6 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
-            "DotNetEnv": {
-              "target": "Package",
-              "version": "[1.4.0, )"
-            },
             "NETCore.MailKit": {
               "target": "Package",
               "version": "[2.0.3, )"

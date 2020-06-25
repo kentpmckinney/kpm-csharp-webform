@@ -70,7 +70,6 @@
 /Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/obj/Debug/netcoreapp3.1/kpm-csharp-webform.pdb
 /Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/obj/Debug/netcoreapp3.1/kpm-csharp-webform.genruntimeconfig.cache
 /Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/obj/Debug/netcoreapp3.1/kpm-csharp-webform.csproj.CopyComplete
-/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/bin/Debug/netcoreapp3.1/DotNetEnv.dll
 /Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/bin/Debug/netcoreapp3.1/MailKit.dll
 /Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/bin/Debug/netcoreapp3.1/Microsoft.Extensions.DependencyInjection.dll
 /Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/bin/Debug/netcoreapp3.1/Microsoft.Extensions.DependencyInjection.Abstractions.dll
