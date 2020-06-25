@@ -78,3 +78,4 @@
 /Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/bin/Debug/netcoreapp3.1/BouncyCastle.Crypto.dll
 /Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
 /Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/bin/Debug/netcoreapp3.1/SendGrid.dll
+/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/obj/Debug/netcoreapp3.1/Razor/Views/Home/SendGridEmail.cshtml.g.cs

@@ -50,6 +50,7 @@ namespace kpm_csharp_webform.Controllers
     static async Task SendEMail()
     {
       string apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY");
+
       SendGridClient client = new SendGridClient(apiKey);
       EmailAddress from = new EmailAddress("ken.p.mckinney@gmail.com", "Kent McKinney");
       string subject = "Sending with SendGrid is Fun";
