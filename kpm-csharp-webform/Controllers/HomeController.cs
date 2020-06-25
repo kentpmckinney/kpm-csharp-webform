@@ -31,13 +31,19 @@ namespace kpm_csharp_webform.Controllers
       client.ServerCertificateValidationCallback = (s, c, h, e) => true;
       client.Connect("smtp.gmail.com", 465, SecureSocketOptions.SslOnConnect);
       string pwd = System.Environment.GetEnvironmentVariable("EMAIL_PWD");
-      string test = System.Environment.GetEnvironmentVariable("TEST");
-      client.Authenticate("ken.p.mckinney@gmail.com", pwd);
-      client.Send(message);
+      try
+      {
+        client.Authenticate("ken.p.mckinney@gmail.com", pwd);
+      }
+      catch
+      {
+        ;
+      }
 
+      client.Send(message);
       client.Disconnect(true);
-      return "test: " + pwd + test; //(IActionResult)
-                                    // return View();
+      return "test: " + pwd;//(IActionResult)
+                            // return View();
     }
   }
 }
