@@ -42,7 +42,7 @@
             },
             "SendGrid": {
               "target": "Package",
-              "version": "[*, )"
+              "version": "[9.17.0, )"
             }
           },
           "imports": [

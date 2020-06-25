@@ -76,3 +76,5 @@
 /Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/bin/Debug/netcoreapp3.1/MimeKit.dll
 /Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/bin/Debug/netcoreapp3.1/NETCore.MailKit.dll
 /Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/bin/Debug/netcoreapp3.1/BouncyCastle.Crypto.dll
+/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
+/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/bin/Debug/netcoreapp3.1/SendGrid.dll

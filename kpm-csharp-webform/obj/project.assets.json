@@ -4814,7 +4814,7 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "NETCore.MailKit >= 2.0.3",
-      "SendGrid >= *"
+      "SendGrid >= 9.17.0"
     ]
   },
   "packageFolders": {
@@ -4858,7 +4858,7 @@
           },
           "SendGrid": {
             "target": "Package",
-            "version": "[*, )"
+            "version": "[9.17.0, )"
           }
         },
         "imports": [

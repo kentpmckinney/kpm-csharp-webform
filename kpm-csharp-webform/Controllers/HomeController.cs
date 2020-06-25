@@ -1,9 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Text.Encodings.Web;
-using MailKit.Net.Smtp;
-using MimeKit;
-using MailKit.Security;
-using Microsoft.Extensions.Configuration;
 using System;
 using System.Threading.Tasks;
 using SendGrid;
@@ -48,8 +43,21 @@ namespace kpm_csharp_webform.Controllers
       //   client.Disconnect(true);
       //   return "test: " + pwd;//(IActionResult)
       //                         // return View();
-      string key = System.Environment.GetEnvironmentVariable("SENDGRID_API_KEY");
-      return "this is a test";
+      SendEMail().Wait();
+      return "this is a test: ";
+    }
+
+    static async Task SendEMail()
+    {
+      string apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY");
+      SendGridClient client = new SendGridClient(apiKey);
+      EmailAddress from = new EmailAddress("ken.p.mckinney@gmail.com", "Kent McKinney");
+      string subject = "Sending with SendGrid is Fun";
+      EmailAddress to = new EmailAddress("kent.p.mckinney@gmail.com", "Recipient");
+      string plainTextContent = "and easy to do anywhere, even with C#";
+      string htmlContent = "<strong>and easy to do anywhere, even with C#</strong>";
+      SendGridMessage msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
+      SendGrid.Response response = await client.SendEmailAsync(msg);
     }
   }
 }
