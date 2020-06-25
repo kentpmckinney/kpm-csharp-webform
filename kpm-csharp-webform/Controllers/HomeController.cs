@@ -30,8 +30,8 @@ namespace kpm_csharp_webform.Controllers
       var client = new SmtpClient();
       client.ServerCertificateValidationCallback = (s, c, h, e) => true;
       client.Connect("smtp.gmail.com", 465, SecureSocketOptions.SslOnConnect);
-      string pwd = (string)System.Environment.GetEnvironmentVariable("EMAIL_PWD");
-      string test = (string)System.Environment.GetEnvironmentVariable("TEST");
+      string pwd = System.Environment.GetEnvironmentVariable("EMAIL_PWD");
+      string test = System.Environment.GetEnvironmentVariable("TEST");
       try
       {
         client.Authenticate("ken.p.mckinney@gmail.com", pwd);
@@ -43,13 +43,8 @@ namespace kpm_csharp_webform.Controllers
       }
 
       client.Disconnect(true);
-      return pwd + test; //(IActionResult)
-                         // return View();
-    }
-
-    public string Welcome(string name, int numTimes = 1)
-    {
-      return HtmlEncoder.Default.Encode($"Hello {name}, NumTimes is: {numTimes}");
+      return "test: " + pwd + test; //(IActionResult)
+                                    // return View();
     }
   }
 }
