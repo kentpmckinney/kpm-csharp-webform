@@ -32,8 +32,16 @@ namespace kpm_csharp_webform.Controllers
       client.Connect("smtp.gmail.com", 465, SecureSocketOptions.SslOnConnect);
       string pwd = (string)System.Environment.GetEnvironmentVariable("EMAIL_PWD");
       string test = (string)System.Environment.GetEnvironmentVariable("TEST");
-      client.Authenticate("ken.p.mckinney@gmail.com", pwd);
-      client.Send(message);
+      try
+      {
+        client.Authenticate("ken.p.mckinney@gmail.com", pwd);
+        client.Send(message);
+      }
+      catch
+      {
+        ;
+      }
+
       client.Disconnect(true);
       return pwd + test; //(IActionResult)
                          // return View();
