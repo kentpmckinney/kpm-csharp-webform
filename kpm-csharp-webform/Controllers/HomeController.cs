@@ -35,8 +35,8 @@ namespace kpm_csharp_webform.Controllers
       client.Send(message);
       client.Disconnect(true);
       string test = "<div>" + (string)System.Environment.GetEnvironmentVariable("TEST") + "</div>";
-      return test; //(IActionResult)
-                   // return View();
+      return pwd; //(IActionResult)
+                  // return View();
     }
 
     public string Welcome(string name, int numTimes = 1)
