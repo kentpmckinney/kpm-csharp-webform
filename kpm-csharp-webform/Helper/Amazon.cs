@@ -20,8 +20,8 @@ namespace kpm_csharp_webform
 
     public static void Upload(string file)
     {
-      string accessKey = "AKIAIIPHTLARGTVEMFQA";
-      string secretKey = "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";
+      string accessKey = "";
+      string secretKey = "";
 
       var credentials = new BasicAWSCredentials(accessKey, secretKey);
       s3Client = new AmazonS3Client(credentials, RegionEndpoint.USWest2);

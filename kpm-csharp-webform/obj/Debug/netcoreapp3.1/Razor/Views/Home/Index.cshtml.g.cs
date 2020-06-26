@@ -19,15 +19,8 @@ using kpm_csharp_webform;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 2 "/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/Views/_ViewImports.cshtml"
-using kpm_csharp_webform.Models;
-
-#line default
-#line hidden
-#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"afd2c002eff32777bdcc4729c88c7ba3820f1256", @"/Views/Home/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"367b2b0c546409322c42aa63c670f3d9d7957499", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"66650ba8ae336705240ceb76748d1ef9c7fb005e", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("method", "post", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -60,7 +53,7 @@ using kpm_csharp_webform.Models;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             WriteLiteral("<!DOCTYPE html>\n<html>\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "afd2c002eff32777bdcc4729c88c7ba3820f12564138", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "afd2c002eff32777bdcc4729c88c7ba3820f12563943", async() => {
                 WriteLiteral("\n        <title>Upload File to Amazon S3</title>\n    ");
             }
             );
@@ -74,9 +67,9 @@ using kpm_csharp_webform.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "afd2c002eff32777bdcc4729c88c7ba3820f12565143", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "afd2c002eff32777bdcc4729c88c7ba3820f12564948", async() => {
                 WriteLiteral("\n      ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "afd2c002eff32777bdcc4729c88c7ba3820f12565403", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "afd2c002eff32777bdcc4729c88c7ba3820f12565208", async() => {
                     WriteLiteral("\n          <div>\n            <label for=\"email\">Email:</label>\n            <input type=\"text\" id=\"email\" name=\"email\"");
                     BeginWriteAttribute("value", " value=\"", 266, "\"", 274, 0);
                     EndWriteAttribute();
