@@ -1,9 +1,19 @@
 ﻿<!DOCTYPE html>
 <html>
     <head>
-        <title>Upload File to Amazon S3</title>
+        <title>Upload a File to the Cloud</title>
     </head>
     <body>
+      <div class="alert alert-info">
+        Hello and welcome to the Cloud File Uploader!
+        <hr style="border-top: 1px solid lightblue"/>
+        Select a file (up to 10 MiB) that you wish to host on the cloud.
+        <br/>
+        Please ensure that it <span class="badge badge-primary"><strong>DOES NOT CONTAIN SENSITIVE INFORMATION</strong></span>!
+        <br/>
+        <br/>
+        Entering an email address is required, and a receipt of this transaction will be sent to this address.
+      </div>
       <form enctype="multipart/form-data" method="post">
           <div>
             <label for="email">Enter an Email Address:</label>

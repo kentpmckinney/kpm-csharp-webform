@@ -35,7 +35,7 @@ namespace kpm_csharp_webform.Controllers
         string subject = $"URL for Uploaded File '{fileName}'";
         string htmlBody = $@"
           <ul>
-            <li>Current Time: {DateTime.Now.ToLongDateString()}</li>
+            <li>Current Time: {DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss")}</li>
             <li>File Uploaded: {fileName}</li>
           </ul>
           <br/>
@@ -44,7 +44,7 @@ namespace kpm_csharp_webform.Controllers
           An email message with this information has been sent to <strong>{email}</strong>.
         ";
         string plainBody = $@"
-          Current Time: {DateTime.Now.ToLongDateString()}\n
+          Current Time: {DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss")}\n
           File Uploaded: {fileName}\n\n
           The uploaded file may be accessed for the next 30 minutes here: \n\n{url}\n\n
           An email message with this information has been sent to '{email}'.
@@ -57,7 +57,7 @@ namespace kpm_csharp_webform.Controllers
       else
       {
         ViewData["Message"] = $@"
-          Please select Browse and choose a file to upload and try again.
+          Please ensure the file selected is readable and try again.
         ";
         return View("Failure");
       }
