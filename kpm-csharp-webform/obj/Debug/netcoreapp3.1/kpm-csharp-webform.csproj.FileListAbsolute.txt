@@ -55,8 +55,6 @@
 /Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/obj/Debug/netcoreapp3.1/kpm-csharp-webform.TagHelpers.output.cache
 /Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/obj/Debug/netcoreapp3.1/kpm-csharp-webform.RazorCoreGenerate.cache
 /Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index.cshtml.g.cs
-/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/obj/Debug/netcoreapp3.1/Razor/Views/Home/Privacy.cshtml.g.cs
-/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/obj/Debug/netcoreapp3.1/Razor/Views/Shared/Error.cshtml.g.cs
 /Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_Layout.cshtml.g.cs
 /Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_ValidationScriptsPartial.cshtml.g.cs
 /Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/obj/Debug/netcoreapp3.1/Razor/Views/_ViewImports.cshtml.g.cs
@@ -78,7 +76,6 @@
 /Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/bin/Debug/netcoreapp3.1/BouncyCastle.Crypto.dll
 /Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
 /Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/bin/Debug/netcoreapp3.1/SendGrid.dll
-/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/obj/Debug/netcoreapp3.1/Razor/Views/Home/SendGridEmail.cshtml.g.cs
 /Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/bin/Debug/netcoreapp3.1/AWSSDK.Core.dll
 /Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/bin/Debug/netcoreapp3.1/AWSSDK.S3.dll
 /Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/obj/Debug/netcoreapp3.1/Razor/Views/Home/Failure.cshtml.g.cs

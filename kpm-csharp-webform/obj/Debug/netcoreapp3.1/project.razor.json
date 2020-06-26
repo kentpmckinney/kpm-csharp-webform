@@ -20521,23 +20521,8 @@
   "RootNamespace": "kpm_csharp_webform",
   "Documents": [
     {
-      "FilePath": "/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/Views/Shared/Error.cshtml",
-      "TargetPath": "Views\\Shared\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/Views/Home/Privacy.cshtml",
-      "TargetPath": "Views\\Home\\Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/Views/_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/Views/Home/SendGridEmail.cshtml",
-      "TargetPath": "Views\\Home\\SendGridEmail.cshtml",
       "FileKind": "mvc"
     },
     {

@@ -2,5 +2,4 @@
     ViewData["Title"] = "File Upload Failed!";
 }
 <h1>@ViewData["Title"]</h1>
-
-<p>Your file failed to upload. Please try again.</p>
+<p>@Html.Raw(@ViewData["Message"])</p>

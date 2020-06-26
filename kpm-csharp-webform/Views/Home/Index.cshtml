@@ -4,13 +4,13 @@
         <title>Upload File to Amazon S3</title>
     </head>
     <body>
-      <form method="post" class="container">
+      <form enctype="multipart/form-data" method="post">
           <div>
-            <label for="email">Email:</label>
+            <label for="email">Enter an Email Address:</label>
             <input type="text" id="email" name="email" value="" />
           </div>
           <div>
-            <label for="file">File:</label>
+            <label for="file">Select a File to Upload:</label>
             <input type="file" id="file" name="file" value="" />
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>

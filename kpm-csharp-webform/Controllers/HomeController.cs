@@ -1,16 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using System;
+using System.IO;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using SendGrid;
 using SendGrid.Helpers.Mail;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Amazon;
-using Amazon.S3;
-using Amazon.S3.Model;
-using Amazon.Runtime;
-using System.IO;
 
 namespace kpm_csharp_webform.Controllers
 {
@@ -23,12 +18,44 @@ namespace kpm_csharp_webform.Controllers
     }
 
     [HttpPost]
-    public ActionResult Index(string email)
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Index([FromForm(Name = "email")] string email, [FromForm(Name = "file")] IFormFile file)
     {
-      UploadObjectUsingPresignedURLTest.Upload("file");
-      //   SendEMail().Wait();
-      ViewData["Message"] = $"An email message has been sent to <strong>{email}</strong> with a link to the file's new cloud location.";
-      return View("Success");
+      if (file != null)
+      {
+        var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
+
+        var path = Path.Combine(
+            Directory.GetCurrentDirectory(), "wwwroot",
+            fileName);
+        Console.WriteLine(path);
+
+        using (var stream = new FileStream(path, FileMode.Create))
+        {
+          await file.CopyToAsync(stream);
+        }
+
+        string url = UploadObjectUsingPresignedURLTest.Upload(path);
+
+        //   SendEMail().Wait();
+        ViewData["Message"] = $@"
+            The uploaded file may be accessed <a href='{url}'>here</a> for the next 30 minutes.
+            An email message has been sent to <strong>{email}</strong>
+            with a link to the file's new cloud location.
+          ";
+        return View("Success");
+      }
+      else
+      {
+        ViewData["Message"] = $"Please select Browse and choose a file to upload.";
+        return View("Failure");
+      }
+
+
+
+
+
+
     }
 
     static async Task SendEMail()
