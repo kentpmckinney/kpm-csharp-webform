@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "U5uy4n8XdlBcfkOcAwHwRo++dBvPFluCqb0HAkPiM84pLPIuqPJBEaR+d325+sGenKf4PGaLT8f3BH2fjh/TUg==",
+  "dgSpecHash": "gqrAwelGfrrFWF4DaDR90rPo571PrGzgN1tLlv3anKkHiqw8mkgEnoN0Pr8bGBHfFXxnGoKkbdIfgCoysmcsCQ==",
   "success": true,
   "projectFilePath": "/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/kpm-csharp-webform.csproj",
   "expectedPackageFiles": [
+    "/Users/kent/.nuget/packages/awssdk.core/3.3.107.17/awssdk.core.3.3.107.17.nupkg.sha512",
+    "/Users/kent/.nuget/packages/awssdk.s3/3.3.111.18/awssdk.s3.3.3.111.18.nupkg.sha512",
     "/Users/kent/.nuget/packages/mailkit/2.6.0/mailkit.2.6.0.nupkg.sha512",
     "/Users/kent/.nuget/packages/microsoft.csharp/4.0.1/microsoft.csharp.4.0.1.nupkg.sha512",
     "/Users/kent/.nuget/packages/microsoft.extensions.dependencyinjection/3.1.4/microsoft.extensions.dependencyinjection.3.1.4.nupkg.sha512",

@@ -24,6 +24,7 @@
     ".NETCoreApp,Version=v3.1": {
       "kpm-csharp-webform/1.0.0": {
         "dependencies": {
+          "AWSSDK.S3": "3.3.111.18",
           "NETCore.MailKit": "2.0.3",
           "SendGrid": "9.17.0",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
@@ -312,6 +313,31 @@
         },
         "compile": {
           "kpm-csharp-webform.dll": {}
+        }
+      },
+      "AWSSDK.Core/3.3.107.17": {
+        "runtime": {
+          "lib/netstandard2.0/AWSSDK.Core.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.3.107.17"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/AWSSDK.Core.dll": {}
+        }
+      },
+      "AWSSDK.S3/3.3.111.18": {
+        "dependencies": {
+          "AWSSDK.Core": "3.3.107.17"
+        },
+        "runtime": {
+          "lib/netstandard2.0/AWSSDK.S3.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.3.111.18"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/AWSSDK.S3.dll": {}
         }
       },
       "MailKit/2.6.0": {
@@ -2795,6 +2821,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "AWSSDK.Core/3.3.107.17": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-LO2a4lYbcmRFyLlxAiZnrWURURyLEIbpGI+LKqtBxZB/3f7J56i3+sZyh6gZ3HmIVL2E7hh1eL9SQ1X/lIvSGQ==",
+      "path": "awssdk.core/3.3.107.17",
+      "hashPath": "awssdk.core.3.3.107.17.nupkg.sha512"
+    },
+    "AWSSDK.S3/3.3.111.18": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ceqOaipJLSRVyrbK3e1M/+x0oqOR64WhfFNZDtjN3OJS1tP/dLThlG4SEFGnvPAtwbuTJtg6qqlHS0suSsXe4w==",
+      "path": "awssdk.s3/3.3.111.18",
+      "hashPath": "awssdk.s3.3.3.111.18.nupkg.sha512"
     },
     "MailKit/2.6.0": {
       "type": "package",

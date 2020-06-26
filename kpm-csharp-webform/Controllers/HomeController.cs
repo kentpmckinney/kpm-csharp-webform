@@ -3,54 +3,45 @@ using System;
 using System.Threading.Tasks;
 using SendGrid;
 using SendGrid.Helpers.Mail;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using kpm_csharp_webform.Models;
+using Amazon;
+using Amazon.S3;
+using Amazon.S3.Model;
+using Amazon.Runtime;
+using System.IO;
 
 namespace kpm_csharp_webform.Controllers
 {
   public class HomeController : Controller
   {
-    public string Index()
+    [HttpGet]
+    public ActionResult Index()
     {
-      // using (var client = new SmtpClient())
-      // {
-      // client.Connect(_appSettings.SmtpServerAddress, _appSettings.SmtpServerPort, SecureSocketOptions.StartTlsWhenAvailable);
-      // client.AuthenticationMechanisms.Remove("XOAUTH2"); // Must be removed for Gmail SMTP
-      // client.Authenticate(_appSettings.SmtpServerUser, _appSettings.SmtpServerPass);
-      // client.Send(Email);
-      // client.Disconnect(true);
-      // }
-      //   var message = new MimeMessage();
-      //   var bodyBuilder = new BodyBuilder();
-      //   message.From.Add(new MailboxAddress("Kent McKinney", "ken.p.mckinney@gmail.com"));
-      //   message.To.Add(new MailboxAddress("Recipient", "ken.p.mckinney@gmail.com"));
-      //   message.ReplyTo.Add(new MailboxAddress("Kent McKinney", "kent.p.mckinney@gmail.com"));
-      //   message.Subject = "Your file has been uploaded and is ready for download";
-      //   bodyBuilder.HtmlBody = "html body";
-      //   message.Body = bodyBuilder.ToMessageBody();
-      //   var client = new SmtpClient();
-      //   client.ServerCertificateValidationCallback = (s, c, h, e) => true;
-      //   client.Connect("smtp.gmail.com", 465, SecureSocketOptions.SslOnConnect);
-      //   string pwd = System.Environment.GetEnvironmentVariable("EMAIL_PWD");
-      //   try
-      //   {
-      //     client.Authenticate("ken.p.mckinney@gmail.com", pwd);
-      //   }
-      //   catch
-      //   {
-      //     ;
-      //   }
+      //   string accessKey = "AKIAIIPHTLARGTVEMFQA";
+      //   string secretKey = "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";
 
-      //   client.Send(message);
-      //   client.Disconnect(true);
-      //   return "test: " + pwd;//(IActionResult)
-      //                         // return View();
+      //   var credentials = new BasicAWSCredentials(accessKey, secretKey);
+      //   IAmazonS3 s3Client = new AmazonS3Client(credentials, RegionEndpoint.USWest2);
+      System.Diagnostics.Debug.WriteLine("test1");
+
+      return View();
+    }
+
+    [HttpPost]
+    public ActionResult Index(string email)
+    {
       SendEMail().Wait();
-      return "this is a test: ";
+      ViewData["Message"] = $"An email message has been sent to <strong>{email}</strong> with a link to the file's new cloud location.";
+      return View("Success");
     }
 
     static async Task SendEMail()
     {
       string apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY");
-
+      apiKey = "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";
       SendGridClient client = new SendGridClient(apiKey);
       EmailAddress from = new EmailAddress("ken.p.mckinney@gmail.com", "Kent McKinney");
       string subject = "Sending with SendGrid is Fun";

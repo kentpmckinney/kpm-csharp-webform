@@ -1,8 +1,19 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>Upload File to Amazon S3</title>
+    </head>
+    <body>
+      <form method="post" class="container">
+          <div>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" value="" />
+          </div>
+          <div>
+            <label for="file">File:</label>
+            <input type="file" id="file" name="file" value="" />
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </body>
+</html>

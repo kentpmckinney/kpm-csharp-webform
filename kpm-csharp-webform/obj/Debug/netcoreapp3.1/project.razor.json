@@ -20536,6 +20536,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/Views/Home/SendGridEmail.cshtml",
+      "TargetPath": "Views\\Home\\SendGridEmail.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/Views/_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
@@ -20546,8 +20551,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/Views/Home/Success.cshtml",
+      "TargetPath": "Views\\Home\\Success.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/Views/Home/Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Volumes/Data/Portfolio/kpm-csharp-webform/kpm-csharp-webform/Views/Home/Failure.cshtml",
+      "TargetPath": "Views\\Home\\Failure.cshtml",
       "FileKind": "mvc"
     },
     {
