@@ -36,6 +36,7 @@ namespace kpm_csharp_webform.Controllers
         // Prepare messages to present to the user
         string subject = $"URL for Uploaded File '{fileName}'";
         string htmlBody = $@"
+          <div>Thank you for using the Cloud File Uploader!</div>
           <ul>
             <li>Current Time: {DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss")}</li>
             <li>File Uploaded: {fileName}</li>
@@ -46,6 +47,7 @@ namespace kpm_csharp_webform.Controllers
           An email message with this information has been sent to <strong>{email}</strong>.
         ";
         string plainBody = $@"
+          Thank you for using the Cloud File Uploader!\n\n
           Current Time: {DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss")}\n
           File Uploaded: {fileName}\n\n
           The uploaded file may be accessed for the next 30 minutes here: \n\n{url}\n\n
