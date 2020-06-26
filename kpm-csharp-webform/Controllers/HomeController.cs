@@ -4,8 +4,6 @@ using System;
 using System.IO;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
-using SendGrid;
-using SendGrid.Helpers.Mail;
 
 namespace kpm_csharp_webform.Controllers
 {
@@ -26,12 +24,16 @@ namespace kpm_csharp_webform.Controllers
         var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
         var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", fileName);
 
+        // Save the file uploaded from the client locally on the server
         using (var stream = new FileStream(path, FileMode.Create))
         {
           await file.CopyToAsync(stream);
         }
 
-        string url = UploadObjectUsingPresignedURLTest.Upload(path);
+        // Upload the file to AWS S3
+        string url = AWS.Upload(path);
+
+        // Prepare messages to present to the user
         string subject = $"URL for Uploaded File '{fileName}'";
         string htmlBody = $@"
           <ul>
@@ -50,27 +52,21 @@ namespace kpm_csharp_webform.Controllers
           An email message with this information has been sent to '{email}'.
         ";
 
-        SendEMail(email, subject, plainBody, htmlBody).Wait();
+        // Send an email to the provided address
+        Email.Send(email, subject, plainBody, htmlBody).Wait();
+
+        // Present the Success view
         ViewData["Message"] = htmlBody;
         return View("Success");
       }
       else
       {
+        // Present the Failure view
         ViewData["Message"] = $@"
           Please ensure the file selected is readable and try again.
         ";
         return View("Failure");
       }
-    }
-
-    static async Task SendEMail(string toAddress, string subject, string plainBody, string htmlBody)
-    {
-      string apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY");
-      SendGridClient client = new SendGridClient(apiKey);
-      EmailAddress from = new EmailAddress("ken.p.mckinney@gmail.com", "Kent McKinney");
-      EmailAddress to = new EmailAddress(toAddress, "File Upload User");
-      SendGridMessage msg = MailHelper.CreateSingleEmail(from, to, subject, plainBody, htmlBody);
-      SendGrid.Response response = await client.SendEmailAsync(msg);
     }
   }
 }

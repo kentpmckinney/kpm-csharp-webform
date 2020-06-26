@@ -40,6 +40,10 @@
               "target": "Package",
               "version": "[3.3.111.18, )"
             },
+            "Google.Apis.Gmail.v1": {
+              "target": "Package",
+              "version": "[1.46.0.1992, )"
+            },
             "NETCore.MailKit": {
               "target": "Package",
               "version": "[2.0.3, )"

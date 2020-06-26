@@ -8,23 +8,20 @@ using System.Net;
 
 namespace kpm_csharp_webform
 {
-  class UploadObjectUsingPresignedURLTest
+  class AWS
   {
-    private const string bucketName = "kpm-csharp-webform";
-    private const string objectKey = "kpm-csharp-webform-file";
-    private static readonly RegionEndpoint bucketRegion = RegionEndpoint.USWest2;
-    private static IAmazonS3 s3Client;
+    private const string bucket = "kpm-csharp-webform";
+    private static readonly RegionEndpoint region = RegionEndpoint.USWest2;
+    private static string accessKey = Environment.GetEnvironmentVariable("AWS_ACCESS_KEY_ID");
+    private static string secretKey = Environment.GetEnvironmentVariable("AWS_SECRET_ACCESS_KEY");
+    private static BasicAWSCredentials credentials = new BasicAWSCredentials(accessKey, secretKey);
+    private static IAmazonS3 client = new AmazonS3Client(credentials, region);
 
     public static string Upload(string file)
     {
-      string accessKey = Environment.GetEnvironmentVariable("AWS_ACCESS_KEY_ID");
-      string secretKey = Environment.GetEnvironmentVariable("AWS_SECRET_ACCESS_KEY");
-      Console.WriteLine("Amazon logging:");
-      var credentials = new BasicAWSCredentials(accessKey, secretKey);
-      s3Client = new AmazonS3Client(credentials, RegionEndpoint.USWest2);
-      var uploadUrl = GeneratePreSignedURLUpload(System.IO.Path.GetFileName(file));
+      string uploadUrl = GeneratePreSignedURLForUpload(System.IO.Path.GetFileName(file));
       UploadObject(uploadUrl, file);
-      string downloadUrl = GeneratePreSignedURLDownload(System.IO.Path.GetFileName(file));
+      string downloadUrl = GeneratePreSignedURLForDownload(System.IO.Path.GetFileName(file));
       return downloadUrl;
     }
 
@@ -47,30 +44,30 @@ namespace kpm_csharp_webform
       HttpWebResponse response = httpRequest.GetResponse() as HttpWebResponse;
     }
 
-    private static string GeneratePreSignedURLUpload(string file)
+    private static string GeneratePreSignedURLForUpload(string file)
     {
       var request = new GetPreSignedUrlRequest
       {
-        BucketName = bucketName,
+        BucketName = bucket,
         Key = file,
         Verb = HttpVerb.PUT,
         Expires = DateTime.Now.AddMinutes(5)
       };
 
-      string url = s3Client.GetPreSignedURL(request);
+      string url = client.GetPreSignedURL(request);
       return url;
     }
-    private static string GeneratePreSignedURLDownload(string file)
+    private static string GeneratePreSignedURLForDownload(string file)
     {
       var request = new GetPreSignedUrlRequest
       {
-        BucketName = bucketName,
+        BucketName = bucket,
         Key = file,
         Verb = HttpVerb.GET,
         Expires = DateTime.Now.AddMinutes(60)
       };
 
-      string url = s3Client.GetPreSignedURL(request);
+      string url = client.GetPreSignedURL(request);
       return url;
     }
   }
