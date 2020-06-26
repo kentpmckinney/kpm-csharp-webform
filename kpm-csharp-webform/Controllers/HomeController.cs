@@ -43,22 +43,21 @@ namespace kpm_csharp_webform.Controllers
           </ul>
           <br/>
           The uploaded file may be accessed <a href='{url}'>here</a> for the next 30 minutes.
-          <br/>
-          An email message with this information has been sent to <strong>{email}</strong>.
         ";
         string plainBody = $@"
           Thank you for using the Cloud File Uploader!\n\n
           Current Time: {DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss")}\n
           File Uploaded: {fileName}\n\n
-          The uploaded file may be accessed for the next 30 minutes here: \n\n{url}\n\n
-          An email message with this information has been sent to '{email}'.
+          The uploaded file may be accessed for the next 30 minutes here: \n\n{url}
         ";
 
         // Send an email to the provided address
         Email.Send(email, subject, plainBody, htmlBody).Wait();
 
         // Present the Success view
-        ViewData["Message"] = htmlBody;
+        ViewData["Message"] = htmlBody + $@"
+          <br/>An email message with this information has been sent to <strong>{email}</strong>.
+        ";
         return View("Success");
       }
       else
