@@ -48,7 +48,7 @@ namespace kpm_csharp_webform.Controllers
         TimeZoneInfo localTimeZone = TimeZoneInfo.FindSystemTimeZoneById(timezone);
         DateTime pacificTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, localTimeZone);
         string htmlBody = $@"
-          <div>Thank you for using the Cloud File Uploader!</div>
+          <div>Thank you for using Kent's Cloud Share!</div>
           <ul>
             <li>Current Time: {pacificTime.ToString("MM/dd/yyyy HH:mm:ss")} ({timezone})</li>
             <li>File Uploaded: {fileName}</li>
