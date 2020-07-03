@@ -22,6 +22,7 @@
           <div>
             <label for="file">Select a File to Upload:</label>
             <input type="file" id="file" name="file" value="" required />
+            <input type="hidden" id="timezone" name="timezone" value="" />
             <script>
               document.getElementById("file").onchange = function() {
                 if(this.files[0].size > 10*1024*1024){
@@ -29,6 +30,8 @@
                   this.value = "";
                 };
               }
+              let timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+              document.getElementById("timezone").value = timeZone;
             </script>
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>

@@ -17,7 +17,7 @@ namespace kpm_csharp_webform.Controllers
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Index([FromForm(Name = "email")] string email, [FromForm(Name = "file")] IFormFile file)
+    public async Task<IActionResult> Index([FromForm(Name = "email")] string email, [FromForm(Name = "file")] IFormFile file, [FromForm(Name = "timezone")] string timezone)
     {
       if (file != null && file.Length > 0)
       {
@@ -44,10 +44,13 @@ namespace kpm_csharp_webform.Controllers
 
         // Prepare messages to present to the user
         string subject = $"URL for Uploaded File '{fileName}'";
+        DateTime utcTime = DateTime.UtcNow;
+        TimeZoneInfo localTimeZone = TimeZoneInfo.FindSystemTimeZoneById(timezone);
+        DateTime pacificTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, localTimeZone);
         string htmlBody = $@"
           <div>Thank you for using the Cloud File Uploader!</div>
           <ul>
-            <li>Current Time: {DateTime.Now.ToLocalTime().ToString("MM/dd/yyyy HH:mm:ss")}</li>
+            <li>Current Time: {pacificTime.ToString("MM/dd/yyyy HH:mm:ss")} ({timezone})</li>
             <li>File Uploaded: {fileName}</li>
           </ul>
           <br/>
@@ -55,7 +58,7 @@ namespace kpm_csharp_webform.Controllers
         ";
         string plainBody = $@"
           Thank you for using the Cloud File Uploader!\n\n
-          Current Time: {DateTime.Now.ToLocalTime().ToString("MM/dd/yyyy HH:mm:ss")}\n
+          Current Time: {pacificTime.ToString("MM/dd/yyyy HH:mm:ss")} ({timezone})\n
           File Uploaded: {fileName}\n\n
           The uploaded file may be accessed for the next 30 minutes here: \n\n{url}
         ";
