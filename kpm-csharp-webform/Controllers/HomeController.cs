@@ -54,13 +54,16 @@ namespace kpm_csharp_webform.Controllers
             <li>File Uploaded: {fileName}</li>
           </ul>
           <br/>
-          The uploaded file may be accessed <a href='{url}'>here</a> for the next 60 minutes.
+          The uploaded file may be accessed for the next 60 minutes.
+          <br />
+          To download the file, click <a href='{url}'>here</a>.
         ";
         string plainBody = $@"
           Thank you for using the Cloud File Uploader!\n\n
           Current Time: {pacificTime.ToString("MM/dd/yyyy HH:mm:ss")} ({timezone})\n
           File Uploaded: {fileName}\n\n
-          The uploaded file may be accessed for the next 30 minutes here: \n\n{url}
+          The uploaded file may be accessed for the next 60 minutes.\n
+          To download the file, click here: \n\n{url}
         ";
 
         // Send an email to the provided address
