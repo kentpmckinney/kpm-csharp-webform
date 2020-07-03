@@ -40,13 +40,15 @@ namespace kpm_csharp_webform
       t.Wait();
       bool bucketExists = t.Result;
       if (!t.IsCompletedSuccessfully)
-        throw new WebException("AmazonS3Client.DoesS3BucketExistAsync() must run successfully");
+        throw new WebException("DoesS3BucketExistAsync() must run successfully");
       if (!bucketExists)
-        throw new WebException($"Amazon S3 bucket '{bucket}' must exist");
+        throw new WebException($"Amazon S3 bucket must exist");
     }
 
     public static string Upload(string file)
     {
+      if (String.IsNullOrWhiteSpace(file))
+        return "";
       if (!File.Exists(file))
         throw new FileNotFoundException("The file being uploaded must exist");
       FileInfo fileInfo = new FileInfo(file);
@@ -54,6 +56,7 @@ namespace kpm_csharp_webform
         throw new FileLoadException("File being uploaded must be greater than zero bytes");
       if (fileInfo.Length > 10 * 1024 * 1024)
         throw new FileLoadException("File being uploaded must be less than or equal to 10 MiB");
+
       string uploadUrl = GeneratePreSignedURLForUpload(System.IO.Path.GetFileName(file));
       UploadObject(uploadUrl, file);
       string downloadUrl = GeneratePreSignedURLForDownload(System.IO.Path.GetFileName(file));
@@ -62,6 +65,11 @@ namespace kpm_csharp_webform
 
     private static void UploadObject(string url, string filePath)
     {
+      if (String.IsNullOrWhiteSpace(url))
+        return;
+      if (String.IsNullOrWhiteSpace(filePath))
+        return;
+
       HttpWebRequest httpRequest = WebRequest.Create(url) as HttpWebRequest;
       httpRequest.Method = "PUT";
       using (Stream dataStream = httpRequest.GetRequestStream())
@@ -81,6 +89,9 @@ namespace kpm_csharp_webform
 
     private static string GeneratePreSignedURLForUpload(string file)
     {
+      if (String.IsNullOrWhiteSpace(file))
+        return "";
+
       var request = new GetPreSignedUrlRequest
       {
         BucketName = bucket,
@@ -94,6 +105,9 @@ namespace kpm_csharp_webform
     }
     private static string GeneratePreSignedURLForDownload(string file)
     {
+      if (String.IsNullOrWhiteSpace(file))
+        return "";
+
       var request = new GetPreSignedUrlRequest
       {
         BucketName = bucket,
