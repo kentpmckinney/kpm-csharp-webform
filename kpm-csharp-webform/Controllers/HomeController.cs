@@ -47,7 +47,7 @@ namespace kpm_csharp_webform.Controllers
         string htmlBody = $@"
           <div>Thank you for using the Cloud File Uploader!</div>
           <ul>
-            <li>Current Time: {DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss")}</li>
+            <li>Current Time: {DateTime.Now.ToLocalTime().ToString("MM/dd/yyyy HH:mm:ss")}</li>
             <li>File Uploaded: {fileName}</li>
           </ul>
           <br/>
@@ -55,7 +55,7 @@ namespace kpm_csharp_webform.Controllers
         ";
         string plainBody = $@"
           Thank you for using the Cloud File Uploader!\n\n
-          Current Time: {DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss")}\n
+          Current Time: {DateTime.Now.ToLocalTime().ToString("MM/dd/yyyy HH:mm:ss")}\n
           File Uploaded: {fileName}\n\n
           The uploaded file may be accessed for the next 30 minutes here: \n\n{url}
         ";
