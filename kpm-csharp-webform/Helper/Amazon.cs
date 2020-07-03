@@ -5,6 +5,7 @@ using Amazon;
 using System;
 using System.IO;
 using System.Net;
+using System.Threading.Tasks;
 
 namespace kpm_csharp_webform
 {
@@ -12,13 +13,47 @@ namespace kpm_csharp_webform
   {
     private const string bucket = "kpm-csharp-webform";
     private static readonly RegionEndpoint region = RegionEndpoint.USWest2;
-    private static string accessKey = Environment.GetEnvironmentVariable("AWS_ACCESS_KEY_ID");
-    private static string secretKey = Environment.GetEnvironmentVariable("AWS_SECRET_ACCESS_KEY");
-    private static BasicAWSCredentials credentials = new BasicAWSCredentials(accessKey, secretKey);
-    private static IAmazonS3 client = new AmazonS3Client(credentials, region);
+    private static string accessKey;
+    private static string secretKey;
+    private static BasicAWSCredentials credentials;
+    private static IAmazonS3 client;
+
+    static AWS()
+    {
+      // Validate AWS credentials
+      if (Environment.GetEnvironmentVariable("AWS_ACCESS_KEY_ID") == null)
+        throw new ArgumentNullException("The environment variable AWS_ACCESS_KEY_ID must not be null");
+      accessKey = Environment.GetEnvironmentVariable("AWS_ACCESS_KEY_ID");
+      if (accessKey == "")
+        throw new ArgumentException("The environment variable AWS_ACCESS_KEY_ID must not be empty");
+      if (Environment.GetEnvironmentVariable("AWS_SECRET_ACCESS_KEY") == null)
+        throw new ArgumentNullException("The environment variable AWS_SECRET_ACCESS_KEY must not be null");
+      secretKey = Environment.GetEnvironmentVariable("AWS_SECRET_ACCESS_KEY");
+      if (secretKey == "")
+        throw new ArgumentException("The environment variable AWS_SECRET_ACCESS_KEY must not be empty");
+
+      credentials = new BasicAWSCredentials(accessKey, secretKey);
+      client = new AmazonS3Client(credentials, region);
+
+      // Validate the AWS client and bucket
+      Task<Boolean> t = client.DoesS3BucketExistAsync(bucket);
+      t.Wait();
+      bool bucketExists = t.Result;
+      if (!t.IsCompletedSuccessfully)
+        throw new WebException("AmazonS3Client.DoesS3BucketExistAsync() must run successfully");
+      if (!bucketExists)
+        throw new WebException($"Amazon S3 bucket '{bucket}' must exist");
+    }
 
     public static string Upload(string file)
     {
+      if (!File.Exists(file))
+        throw new FileNotFoundException("The file being uploaded must exist");
+      FileInfo fileInfo = new FileInfo(file);
+      if (fileInfo.Length < 1)
+        throw new FileLoadException("File being uploaded must be greater than zero bytes");
+      if (fileInfo.Length > 10 * 1024 * 1024)
+        throw new FileLoadException("File being uploaded must be less than or equal to 10 MiB");
       string uploadUrl = GeneratePreSignedURLForUpload(System.IO.Path.GetFileName(file));
       UploadObject(uploadUrl, file);
       string downloadUrl = GeneratePreSignedURLForDownload(System.IO.Path.GetFileName(file));

@@ -29,9 +29,18 @@ namespace kpm_csharp_webform.Controllers
         {
           await file.CopyToAsync(stream);
         }
+        if (!System.IO.File.Exists(path))
+          throw new FileNotFoundException($"File '{file.Name}' failed to upload");
+
+        // Check that the file is not too large
+        FileInfo fileInfo = new FileInfo(path);
+        if (fileInfo.Length > 10 * 1024 * 1024)
+          throw new FileLoadException("File being uploaded must be less than or equal to 10 MiB");
 
         // Upload the file to AWS S3
         string url = AWS.Upload(path);
+        if (url == null || url == "")
+          throw new ArgumentNullException("The file download URL must not be null or empty");
 
         // Prepare messages to present to the user
         string subject = $"URL for Uploaded File '{fileName}'";
@@ -42,7 +51,7 @@ namespace kpm_csharp_webform.Controllers
             <li>File Uploaded: {fileName}</li>
           </ul>
           <br/>
-          The uploaded file may be accessed <a href='{url}'>here</a> for the next 30 minutes.
+          The uploaded file may be accessed <a href='{url}'>here</a> for the next 60 minutes.
         ";
         string plainBody = $@"
           Thank you for using the Cloud File Uploader!\n\n
@@ -52,13 +61,25 @@ namespace kpm_csharp_webform.Controllers
         ";
 
         // Send an email to the provided address
-        Email.Send(email, subject, plainBody, htmlBody).Wait();
-
-        // Present the Success view
-        ViewData["Message"] = htmlBody + $@"
-          <br/>An email message with this information has been sent to <strong>{email}</strong>.
-        ";
-        return View("Success");
+        Task<string> t = Email.Send(email, subject, plainBody, htmlBody);
+        t.Wait();
+        string r = t.Result;
+        if (r == "Accepted")
+        {
+          // Present the Success view
+          ViewData["Message"] = htmlBody + $@"
+            <br/>An email message with this information has been sent to <strong>{email}</strong>.
+          ";
+          return View("Success");
+        }
+        else
+        {
+          // Present the Success view
+          ViewData["Message"] = htmlBody + $@"
+            <br/><span class='alert alert-warning'>There was an error sending a message to <strong>{email}</strong></span>.
+          ";
+          return View("Success");
+        }
       }
       else
       {
