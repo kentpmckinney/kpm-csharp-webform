@@ -1,5 +1,5 @@
 <!-- Category: Original;HTML/CSS/JS;C# -->
-# Address Book
+# Web Form
 
 Allows uploading a document to AWS S3 and provides a temporary download link
 
@@ -26,8 +26,8 @@ Git (optional but recommended)
 
 ### Setting up a Development Environment
 
-1. Download a copy of the source code from: https://github.com/kentpmckinney/epi-address-book
-   or clone using the repository link: https://github.com/kentpmckinney/epi-address-book.git
+1. Download a copy of the source code from: https://github.com/kentpmckinney/kpm-csharp-webform
+   or clone using the repository link: https://github.com/kentpmckinney/kpm-csharp-webform.git
 2. Navigate to the folder location of the source files in Finder or in the Terminal
 3. Launch a web browser so that it opens index.html
 
@@ -36,6 +36,8 @@ Git (optional but recommended)
 * JavaScript
 * HTML
 * CSS
+* C#
+* ASP.NET Core
 
 ## Authors
 
